@@ -38,7 +38,7 @@ abstract class Device {
     throw UnimplementedError();
   }
 
-  Stream<List<int>> read() {
+  Stream<List<int>> read(int length) {
     throw UnimplementedError();
   }
 }
