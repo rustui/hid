@@ -1,4 +1,6 @@
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
+import 'device.dart';
+export 'device.dart';
 
 abstract class HidPlatform extends PlatformInterface {
   HidPlatform() : super(token: _token);
@@ -15,30 +17,6 @@ abstract class HidPlatform extends PlatformInterface {
   }
 
   Future<List<Device>> getDeviceList() {
-    throw UnimplementedError();
-  }
-}
-
-abstract class Device {
-  int vendorId;
-  int productId;
-  String serialNumber;
-  String productName;
-  Device(
-      {required this.vendorId,
-      required this.productId,
-      required this.serialNumber,
-      required this.productName});
-
-  Future<bool> open() {
-    throw UnimplementedError();
-  }
-
-  Future<void> close() {
-    throw UnimplementedError();
-  }
-
-  Stream<List<int>> read(int length) {
     throw UnimplementedError();
   }
 }

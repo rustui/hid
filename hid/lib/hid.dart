@@ -1,7 +1,8 @@
-library hid;
+import 'package:hid_platform_interface/hid_platform_interface.dart';
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
+export 'package:hid_platform_interface/device.dart';
+
+HidPlatform get _platform => HidPlatform.instance;
+Future<List<Device>> getDeviceList() {
+  return _platform.getDeviceList();
 }
