@@ -1,6 +1,6 @@
 name: hid
 description: A multi-platform plugin which allows an application to interface with USB HID-Class devices on Windows, Android, and macOS.
-version: 0.0.7
+version: 0.1.0
 repository: https://github.com/rustui/hid/tree/main/hid
 
 environment:
@@ -12,6 +12,7 @@ dependencies:
     sdk: flutter
   hid_platform_interface: ^0.0.7
   hid_windows: ^0.0.7
+  hid_macos: ^0.1.0
 
 dev_dependencies:
   flutter_test:
@@ -27,3 +28,5 @@ flutter:
       platforms:
         windows:
           default_package: hid_windows
+        macos:
+          default_package: hid_macos
