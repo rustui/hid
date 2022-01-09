@@ -24,6 +24,8 @@ class HidPluginMacOS extends HidPlatform {
         productId: ref.product_id,
         serialNumber: ref.serial_number.toDartString(),
         productName: ref.product_string.toDartString(),
+        usagePage: ref.usage_page,
+        usage: ref.usage,
       ));
       current = ref.next;
     }
@@ -41,11 +43,16 @@ class UsbDevice extends Device {
     required int productId,
     required String serialNumber,
     required String productName,
+    required int usagePage,
+    required int usage,
   }) : super(
-            vendorId: vendorId,
-            productId: productId,
-            serialNumber: serialNumber,
-            productName: productName);
+          vendorId: vendorId,
+          productId: productId,
+          serialNumber: serialNumber,
+          productName: productName,
+          usagePage: usagePage,
+          usage: usage,
+        );
 
   @override
   Future<bool> open() async {
