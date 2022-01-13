@@ -1,3 +1,7 @@
+## 0.0.8
+
+* Add write method.
+
 ## 0.0.7
 
 * Dart version.

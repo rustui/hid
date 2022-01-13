@@ -5,11 +5,15 @@ abstract class Device {
   int productId;
   String serialNumber;
   String productName;
+  int? usagePage;
+  int? usage;
   Device(
       {required this.vendorId,
       required this.productId,
       required this.serialNumber,
-      required this.productName});
+      required this.productName,
+      this.usagePage,
+      this.usage});
 
   Future<bool> open() {
     throw UnimplementedError();
