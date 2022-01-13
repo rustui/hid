@@ -26,6 +26,8 @@ class HidAndroidPlugin : FlutterPlugin, MethodCallHandler {
     private val gson = Gson()
     private var connection: UsbDeviceConnection? = null
     private var device: UsbDevice? = null
+    private var interfaceIndex: Int? = null
+    private var endpointIndex: Int? = null
 
     override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
         channel = MethodChannel(flutterPluginBinding.binaryMessenger, "hid_android")
@@ -67,11 +69,16 @@ class HidAndroidPlugin : FlutterPlugin, MethodCallHandler {
             "open" -> {
                 device = usbManager.deviceList[call.argument("deviceName")]!!
                 connection = usbManager.openDevice(device)
-                result.success(connection!!.claimInterface(device!!.getInterface(5), true))
+                (interfaceIndex, endpointIndex) = getReadIndices(device!!)!!
+                result.success(
+                    connection!!.claimInterface(
+                        device!!.getInterface(interfaceIndex!!),
+                        true
+                    )
+                )
             }
             "read" -> {
                 if (connection != null) {
-                    val (i, j) = getReadIndices(device!!)!!
                     val length: Int = call.argument("length")!!
                     val duration: Int = call.argument("duration")!!
                     Thread {

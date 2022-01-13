@@ -1,6 +1,6 @@
 name: hid_android
 description: Android implementation of the hid plugin.
-version: 0.1.2
+version: 0.1.3
 homepage: https://github.com/rustui/hid/tree/main/hid_android
 
 environment:
