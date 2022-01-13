@@ -1,6 +1,6 @@
 name: hid_macos
 description: macOS implementation of the hid plugin.
-version: 0.1.0
+version: 0.1.1
 repository: https://github.com/rustui/hid/tree/main/hid_macos
 
 environment:
@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   ffi: ^1.1.2
-  hid_platform_interface: ^0.0.7
+  hid_platform_interface: ^0.0.8
 
 dev_dependencies:
   flutter_test:
