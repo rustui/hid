@@ -57,7 +57,8 @@ class UsbDevice extends Device {
   Stream<List<int>> read(int length, int duration) async* {
     while (isOpen) {
       final start = DateTime.now();
-      final List<Object?> array = await _channel.invokeMethod('read');
+      final List<Object?> array = await _channel.invokeMethod(
+          'read', <String, int>{'length': length, 'duration': duration});
       yield array.map((e) => e! as int).toList();
       var t = DateTime.now().difference(start).inMilliseconds;
       t = min(max(0, t), duration);

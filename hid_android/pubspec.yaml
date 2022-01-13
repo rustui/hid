@@ -1,6 +1,6 @@
 name: hid_android
 description: Android implementation of the hid plugin.
-version: 0.1.0
+version: 0.1.2
 homepage: https://github.com/rustui/hid/tree/main/hid_android
 
 environment:
@@ -31,6 +31,7 @@ flutter:
       android:
         package: com.rustui.hid_android
         pluginClass: HidAndroidPlugin
+        dartPluginClass: HidAndroid
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:
