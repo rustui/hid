@@ -24,6 +24,8 @@ class HidPluginWindows extends HidPlatform {
         productId: ref.product_id,
         serialNumber: ref.serial_number.toDartString(),
         productName: ref.product_string.toDartString(),
+        usagePage: ref.usage_page,
+        usage: ref.usage,
       ));
       current = ref.next;
     }
@@ -41,6 +43,8 @@ class UsbDevice extends Device {
     required int productId,
     required String serialNumber,
     required String productName,
+    required int usagePage,
+    required int usage,
   }) : super(
             vendorId: vendorId,
             productId: productId,
@@ -81,6 +85,26 @@ class UsbDevice extends Device {
         yield buf.asTypedList(count);
       }
       await Future.delayed(Duration(milliseconds: duration));
+    }
+    calloc.free(buf);
+  }
+
+  @override
+  Future<void> write(Uint8List bytes) async {
+    final raw = _raw;
+    if (raw == null) throw Exception();
+    final buf = calloc<Uint8>(bytes.lengthInBytes);
+    final Uint8List _buf = buf.asTypedList(bytes.lengthInBytes);
+    _buf.setRange(0, bytes.lengthInBytes, bytes);
+    var offset = 0;
+    while (isOpen && bytes.lengthInBytes - offset > 0) {
+      final count =
+          _api.write(raw, buf.elementAt(offset), bytes.lengthInBytes - offset);
+      if (count == -1) {
+        break;
+      } else {
+        offset += count;
+      }
     }
     calloc.free(buf);
   }
