@@ -49,7 +49,9 @@ class UsbDevice extends Device {
             vendorId: vendorId,
             productId: productId,
             serialNumber: serialNumber,
-            productName: productName);
+            productName: productName,
+            usagePage: usagePage,
+            usage: usage);
 
   @override
   Future<bool> open() async {
