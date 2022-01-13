@@ -1,13 +1,20 @@
+import 'dart:typed_data';
+
 abstract class Device {
   int vendorId;
   int productId;
   String serialNumber;
   String productName;
-  Device(
-      {required this.vendorId,
-      required this.productId,
-      required this.serialNumber,
-      required this.productName});
+  int usagePage;
+  int usage;
+  Device({
+    required this.vendorId,
+    required this.productId,
+    required this.serialNumber,
+    required this.productName,
+    required this.usagePage,
+    required this.usage,
+  });
 
   Future<bool> open() {
     throw UnimplementedError();
@@ -18,6 +25,10 @@ abstract class Device {
   }
 
   Stream<List<int>> read(int length, int duration) {
+    throw UnimplementedError();
+  }
+
+  Future<void> write(Uint8List bytes) {
     throw UnimplementedError();
   }
 }
