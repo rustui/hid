@@ -1,6 +1,6 @@
 name: hid
 description: A multi-platform plugin which allows an application to interface with USB HID-Class devices on Linux, Windows, Android, and macOS.
-version: 0.1.4
+version: 0.1.5
 repository: https://github.com/rustui/hid/tree/main/hid
 
 environment:

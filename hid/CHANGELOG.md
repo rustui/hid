@@ -1,3 +1,7 @@
+## 0.1.5
+
+* Add linux implementation.
+
 ## 0.1.4
 
 * Fix bug.
