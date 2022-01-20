@@ -1,3 +1,7 @@
+## 0.1.0
+
+* Embed hidapi.dll on windows.
+
 ## 0.0.8
 
 * Add usage.

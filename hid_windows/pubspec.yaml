@@ -1,6 +1,6 @@
 name: hid_windows
 description: Windows implementation of the hid plugin.
-version: 0.0.8
+version: 0.1.0
 repository: https://github.com/rustui/hid/tree/main/hid_windows
 
 environment:
